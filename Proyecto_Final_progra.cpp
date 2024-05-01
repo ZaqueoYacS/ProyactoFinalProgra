@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <ctime>
 
  using namespace std;
 
@@ -11,21 +12,28 @@ const string ncomp = "computador";
 int preguntarCantidadJugadores();
  string solicitarNombre(int jNum);
  void elegirSimbolo(char &J1, char &J2);
+ void primerTurno();
 
 
  int main(){
 
  nJugadores = preguntarCantidadJugadores();
+  srand(time(NULL));
+
 
     switch (nJugadores) {
         case 1:
             nJ1 = solicitarNombre(1);
             elegirSimbolo(J1, J2);
+            primerTurno();
+            /* AQUÍ HAY QUE COLOCAR EL CUADRADO*/
             break;
         case 2:
             nJ1 = solicitarNombre(1);
             nJ2 = solicitarNombre(2);
             elegirSimbolo(J1, J2);
+            primerTurno();
+            /* AQUÍ HAY QUE COLOCAR EL CUADRADO*/
             break;
         default:
             cout << "numero de jugadores no valido." << endl;
@@ -83,6 +91,17 @@ void elegirSimbolo(char &J1, char &J2) {
     
     cout << nJ1 << "----------------: " << J1 << endl;
     cout << ncomp << "----------------: " << J2 << endl;
+    }
+}
+
+    void primerTurno() {
+    int numal = 1 + rand() % 3;/*numal es variable para numero aleatorio*/
+    if (numal == 1) {
+        cout << nJ1 << " empieza." << endl;
+    } else if (numal == 2) {
+        cout << nJ2 << " empieza." << endl;
+    } else {
+        cout << ncomp << " empieza." << endl;
     }
 }
 
