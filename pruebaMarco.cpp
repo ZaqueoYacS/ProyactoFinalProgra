@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 
-
  using namespace std;
 char tablero[3][3];//matriz
 string jugador1,jugador2;//jugadores uno simpre sera persona el 2 puede ser pc
@@ -17,16 +16,29 @@ void iniciarTablero(){ //funcion de tablero con casillas vacias
     }
 }
 void mostrarTablero(){//para ir mostrando el tablero cada nque se reinicia
-    cout<<" 0 1 2 "<<endl;
-    for(int i=0; i<3; i++){
-        cout<<i<<" ";
+    for(int i=0; i<5; i++){
+        cout<<endl;
+        cout << "       ";
+    cout << "  0   1   2  " << endl;
+    cout << "       ";
+    cout << " -------------" << endl;
+    for(int i=0; i<3;i++){
+        cout << "     ";
+        cout <<i<< "  ";
+    
         for(int j=0; j<3; j++){
-            cout<<tablero[i][j]<<" ";
+            cout<<"| "<<tablero[i][j]<<" ";
+        }
+            cout << "|" << endl;
+        cout << "       ";
+        cout << " -------------" << endl;
 
 
         }
         cout<<endl;
     }
+    for(int i=0; i<5;i++)
+    cout<<endl;
 }
 bool tableroCompletado(){//para ver si no hay un empate
     for(int i=0; i<3; i++){
